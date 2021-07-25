@@ -1,0 +1,22 @@
+<div *ngIf="repoData;else loading">
+  <div>
+    <tabset>
+      <tab [heading]="tabHeadings.userRepos">
+        <form [formGroup]="checkBoxForm">
+          Want to see details? <input type="checkbox" [formControlName]="'switch'" (change)="onSwitchHandler($event)">
+        </form>
+        <app-user-repos [repoData]="repoData" [isToShowDetails]="isToShowDetails"></app-user-repos>
+      </tab>
+      <tab [heading]="tabHeadings.starRepos">
+        <app-star-repos (prData)="prDataHandler($event)"></app-star-repos>
+      </tab>
+      <tab [heading]="tabHeadings.openPRs">
+        <app-pr-list [pullsData]="openPrOfUser"></app-pr-list>
+      </tab>
+    </tabset>
+  </div>
+</div>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>

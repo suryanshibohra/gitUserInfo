@@ -1,0 +1,10 @@
+<div *ngIf="pullsData?.length;else no_pr_msg">
+    Open PRs -
+    <ul class="PR-data">
+        <li *ngFor="let pr of pullsData">
+            <a href="{{pr?.html_url}}" target="_blank">{{pr?.html_url}}
+            </a>
+        </li>
+    </ul>
+</div>
+<ng-template #no_pr_msg>{{noOpenPrMsg}}</ng-template>

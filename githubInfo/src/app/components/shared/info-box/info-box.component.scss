@@ -1,0 +1,17 @@
+.container {
+    &>.row{
+            &>.repo-box{
+                border: 1px solid lightgray;
+                border-radius: 4px;
+                margin: 10px;
+                padding: 10px 10px 10px 20px;
+                &>img{
+                    height: 20px;
+                    width: 20px;
+                }
+                &>.repo-description{
+                    width: 300px;
+                }
+            }
+    }
+}

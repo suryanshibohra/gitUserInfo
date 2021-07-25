@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col repo-box" *ngFor='let repo of repoData'>
+            <img src={{repo.avatar_url}} />
+            <div class="repo-name">
+                <a href="{{repo.html_url}}" target="_blank">{{repo.full_name}}</a>
+            </div>
+            <p class="repo-description">{{repo.description}}</p>
+            <div *ngIf="isToShowDetails">
+                <span>Forks : {{repo.forks_count}}</span>
+                <span> Open Issues : {{repo.open_issues_count}}</span>
+            </div>
+            <div *ngIf="isToShowPRs">
+                <app-pr-list [pullsData]="repo.pullsData"></app-pr-list>
+            </div>
+        </div>
+    </div>
+</div>
